@@ -159,11 +159,11 @@ class VkBotMessageEvent(VkBotEvent):
 
         if self.obj.peer_id and self.obj.peer_id < 0:
             self.from_group = True
-        elif self.obj.peer_id < CHAT_START_ID:
+        elif self.obj.peer_id and self.obj.peer_id < CHAT_START_ID:
             self.from_user = True
         else:
             self.from_chat = True
-            self.chat_id = self.obj.peer_id - CHAT_START_ID
+            self.chat_id = CHAT_START_ID
 
 
 class VkBotLongPoll(object):
